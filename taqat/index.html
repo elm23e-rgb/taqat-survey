@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="light">
+<title>استبيان منظومة طاقات</title>
+<link rel="icon" href="../assets/logo-deep.png">
+<meta name="description" content="استبيان لمنسوبي جمعية طاقات الشبابية">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://survey.khitamdx.com/taqat/">
+<meta property="og:title" content="استبيان لحصر الاحتياجات والمقترحات لمشروع موقع الجمعية">
+<meta property="og:description" content="استبيان لمنسوبي جمعية طاقات الشبابية">
+<meta property="og:image" content="https://survey.khitamdx.com/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ar_SA">
+<meta name="twitter:card" content="summary_large_image">
+<style>
+@font-face{font-family:'ThmDisp';font-weight:700;src:url('../fonts/thmanyahserifdisplay-Bold.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'ThmText';font-weight:400;src:url('../fonts/thmanyahseriftext-Regular.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'ThmText';font-weight:500;src:url('../fonts/thmanyahseriftext-Medium.woff2') format('woff2');font-display:swap}
+@font-face{font-family:'ThmText';font-weight:700;src:url('../fonts/thmanyahseriftext-Bold.woff2') format('woff2');font-display:swap}
+:root{
+  color-scheme:light;
+  --bg:#F5EFE6; --surface:#FFFFFF; --fg:#3E2615; --mute:#6F5A46; --line:#E1D4BF;
+  --deep:#5E3A1E; --brand:#8A5A34; --gold:#B08A4F; --on-deep:#F8F1E6; --err:#D12A1E; --ok:#3F8F3A;
+  --hero:#5E3A1E; --hero-fg:#F8F1E6; --hero-mute:#E4D3BC; --btn:#5E3A1E; --btn-fg:#F8F1E6; --plate:#FFFFFF;
+  --c1:#EBA43F; --c2:#84C14B; --c3:#31B9C4; --c4:#1A6AAA; --c5:#D6327A;
+  --display:'ThmDisp','Tahoma',serif; --body:'ThmText','Tahoma',serif;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.8;padding-block:0 40px}
+h1,h2,h3{font-family:var(--display);font-weight:700;margin:0;text-wrap:balance}
+.in{max-width:780px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+.mast{background:var(--plate);border-bottom:3px solid var(--gold)}
+.mast .in{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.mast img{display:block;height:62px;width:auto;max-width:46%;object-fit:contain}
+.kh{display:flex;align-items:center;gap:10px;min-width:0}
+.kh img{height:44px}
+.kh b{font-family:var(--display);font-size:22px;color:#5E3A1E;line-height:1.1;display:block}
+.kh small{display:block;font-size:12.5px;color:#6F5A46}
+
+.hero{background:var(--hero);color:var(--hero-fg)}
+.hero .in{padding-block:34px 30px;display:flex;flex-direction:column;gap:10px}
+.hero .kick{font-size:15px;color:var(--hero-mute)}
+.hero h1 span{display:inline-block}
+.hero h1{font-size:clamp(18px,5.2vw,30px);line-height:1.5;color:var(--hero-fg)}
+@media (min-width:780px){.hero h1 span{display:inline-block}
+.hero h1{white-space:nowrap}}
+.hero p{margin:0;font-size:18px;color:var(--hero-mute);max-width:52ch}
+
+main.in{display:flex;flex-direction:column;gap:30px;padding-top:30px}
+
+.not-only{display:flex;flex-direction:column;gap:14px}
+.not-only h2{font-size:24px}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pillar{display:flex;flex-direction:column;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;min-width:0}
+.pillar .tx{display:flex;flex-direction:column;gap:2px;min-width:0}
+.pillar h3{font-size:19px;line-height:1.5}
+.pillar h3::before{content:"";display:inline-block;width:9px;height:9px;background:var(--gold);transform:rotate(45deg);margin-inline-end:10px;vertical-align:middle}
+.pillar p{margin:0;font-size:15px;color:var(--mute);line-height:1.7}
+@media (max-width:600px){.pillars{grid-template-columns:1fr}}
+
+form,.done{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:28px}
+@media (max-width:600px){form,.done{padding:18px}}
+
+.q{display:flex;gap:14px;align-items:flex-start;min-width:0}
+.num{background:var(--deep);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-family:var(--display);font-weight:700;font-size:15px;color:#fff;flex:none}
+.qb{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+.ttl{font-family:var(--display);font-weight:700;font-size:19px;line-height:1.6;display:block}
+.star{white-space:nowrap;color:var(--err);font-family:var(--body);font-weight:700;margin-inline-start:6px}
+.hint{font-size:15px;color:var(--mute);margin:-4px 0 0;line-height:1.7;display:block}
+input[type=text],textarea{font:inherit;color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;width:100%;min-width:0;transition:border-color .15s,box-shadow .15s}
+textarea{min-height:120px;resize:vertical;line-height:1.75}
+input[type=text]:focus,textarea:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 22%,transparent)}
+.q.bad input,.q.bad textarea{border-color:var(--err)}
+.q.bad .chip span{border-color:var(--err)}
+
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative;display:inline-flex}
+.chip input{position:absolute;opacity:0;inset:0;margin:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;gap:8px;padding:7px 15px;border:1.5px solid var(--line);border-radius:999px;background:var(--bg);font-size:16px;line-height:1.6;cursor:pointer;transition:background .15s,color .15s,border-color .15s}
+.chip input:checked + span{background:var(--deep);color:var(--on-deep);border-color:var(--deep)}
+.chip input:focus-visible + span{outline:2px solid var(--brand);outline-offset:2px}
+.sub{margin-top:6px}
+@media (max-width:600px){
+  .q{display:block}
+  .num{float:inline-start;margin-inline-end:10px}
+  .qb{display:block}
+  .qb > * + *{margin-top:8px}
+  .qb > .ttl + .hint{margin-top:2px}
+  .qb input,.qb textarea,.qb .chips,.qb .hint{clear:both}
+}
+
+.send{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+button{font-family:var(--display)}
+button.primary{font-weight:700;font-size:18px;background:var(--btn);color:var(--btn-fg);border:0;border-radius:12px;padding:12px 32px;cursor:pointer}
+button:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+button.primary:disabled{opacity:.6;cursor:default}
+.status{font-size:15px;color:var(--mute)}.status.bad{color:var(--err)}
+
+.done{align-items:flex-start}
+.done .ok{width:54px;height:54px;border-radius:50%;background:var(--ok);display:grid;place-items:center}
+.done .ok svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.done h2{font-size:28px}
+.done p{margin:0;color:var(--mute)}
+button.ghost{background:none;border:1.5px solid var(--line);color:var(--fg);border-radius:12px;padding:8px 20px;cursor:pointer;font-size:16px}
+
+.foot{font-size:13.5px;color:var(--mute);text-align:center}
+
+
+
+[data-k]:empty{display:none}
+@media (prefers-reduced-motion:reduce){.chip span,input,textarea{transition:none}}
+</style>
+</head>
+<body>
+<div id="root">
+<header class="mast">
+  <div class="in">
+    <div class="kh"><img src="../assets/logo-deep.png" alt=""><div><b>خِطام</b><small>حلول أعمال</small></div></div>
+    <img src="../assets/taqat-logo.png" alt="جمعية طاقات الشبابية">
+  </div>
+</header>
+
+<section class="hero">
+  <div class="in">
+    <span class="kick" data-k="kick"></span>
+    <h1><span data-k="title1"></span> <span data-k="title2"></span></h1>
+    <p data-k="lead"></p>
+  </div>
+</section>
+
+<main class="in">
+  <section class="not-only" aria-labelledby="no">
+    <h2 id="no" data-k="pillarsTitle"></h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="tx"><h3 data-k="p0t"></h3><p data-k="p0d"></p></div>
+      </div>
+      <div class="pillar">
+        <div class="tx"><h3 data-k="p1t"></h3><p data-k="p1d"></p></div>
+      </div>
+      <div class="pillar">
+        <div class="tx"><h3 data-k="p2t"></h3><p data-k="p2d"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <form id="f" novalidate>
+    <div class="q" id="q-name">
+      <span class="num" aria-hidden="true">1</span>
+      <div class="qb">
+        <label class="ttl" for="name"><span data-k="qName"></span><span class="star" aria-label="مطلوب">&#8288;*</span></label>
+        <input type="text" id="name" autocomplete="name" maxlength="120">
+      </div>
+    </div>
+
+    <div class="q" id="q-dept">
+      <span class="num" aria-hidden="true">2</span>
+      <div class="qb">
+        <label class="ttl" for="dept"><span data-k="qDept"></span><span class="star" aria-label="مطلوب">&#8288;*</span></label>
+        <input type="text" id="dept" maxlength="120">
+      </div>
+    </div>
+
+    <div class="q" id="q-ch">
+      <span class="num" aria-hidden="true">3</span>
+      <div class="qb">
+        <label class="ttl" for="ch"><span data-k="qCh"></span><span class="star" aria-label="مطلوب">&#8288;*</span></label>
+        <span class="hint" data-k="qChHint"></span>
+        <textarea id="ch" maxlength="2000"></textarea>
+      </div>
+    </div>
+
+    <div class="q" id="q-proc" role="group" aria-labelledby="t-proc">
+      <span class="num" aria-hidden="true">4</span>
+      <div class="qb">
+        <span class="ttl" id="t-proc"><span data-k="qProc"></span><span class="star" aria-label="مطلوب">&#8288;*</span></span>
+        <span class="hint" data-k="qProcHint"></span>
+        <div class="chips" id="chips"></div>
+        <label for="more" class="hint sub" data-k="qMore"></label>
+        <textarea id="more" style="min-height:90px" maxlength="2000"></textarea>
+      </div>
+    </div>
+
+    <input type="text" id="site" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip:rect(0 0 0 0);pointer-events:none">
+    <div class="send">
+      <button type="submit" class="primary" id="go">إرسال الإجابة</button>
+      <span class="status" id="st" role="status"></span>
+    </div>
+  </form>
+
+  <section class="done" id="done" hidden>
+    <span class="ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+    <h2 data-k="doneT"></h2>
+  </section>
+
+  
+
+  <div class="foot" data-k="foot"></div>
+</main>
+
+</div>
+<script>
+/* رابط الاستلام: ضع هنا رابط تطبيق الويب من Google Apps Script (انظر README.md) */
+var ENDPOINT = 'https://script.google.com/macros/s/AKfycbyBVp24U9oJd5euFvpDHnufRoxkiMms-fImpM0si7KY6lUlrPMWoYXt54cuoaJ0Dio8cw/exec';
+
+var CONTENT = {"kick":"استبيان لمنسوبي جمعية طاقات الشبابية","title1":"استبيان لحصر الاحتياجات والمقترحات","title2":"لمشروع موقع الجمعية","lead":"","pillarsTitle":"المنظومة عبارة عن:","p0t":"الموقع","p0d":"واجهة الجمعية، وبرامجها وأخبارها.","p1t":"متجر التبرعات","p1d":"","p2t":"النظام الداخلي","p2d":"المراسلات والتعميد وغيرها.","qName":"اسمك؟","qDept":"في أي قسم أو إدارة تعمل؟","qCh":"عملية أو إجراء ودك إنه يؤتمت في عملك؟","qChHint":"","qProc":"العمليات اللي تراها ضرورية في المنظومة؟","qProcHint":"اختار عملية أو أكثر ..","qMore":"عمليات أخرى لا تجدها في القائمة","doneT":"وصلت إجابتك، شكرًا لك","foot":"خِطام · حلول أعمال","chips":["المراسلات الصادرة والواردة","التعميد والاعتماد","الوثائق والأرشيف","المهام والاجتماعات","الموارد البشرية والحضور","المشاريع والتقارير","المتطوعون والشراكات","المشتريات والمالية","التبرعات والإيصالات","الدورات التدريبية","الأخبار والمركز الإعلامي"]};
+
+var $ = function (id) { return document.getElementById(id); };
+
+function makeChip(text) {
+  var l = document.createElement('label'); l.className = 'chip';
+  var i = document.createElement('input'); i.type = 'checkbox';
+  var s = document.createElement('span'); s.textContent = text;
+  l.appendChild(i); l.appendChild(s); return l;
+}
+
+[].forEach.call(document.querySelectorAll('[data-k]'), function (el) {
+  var v = CONTENT[el.getAttribute('data-k')];
+  if (v != null) el.textContent = v;
+});
+CONTENT.chips.forEach(function (t) { $('chips').appendChild(makeChip(t)); });
+
+function setStatus(t, bad) { var s = $('st'); s.textContent = t || ''; s.className = 'status' + (bad ? ' bad' : ''); }
+function mark(id, bad) { $(id).classList.toggle('bad', !!bad); }
+
+function collect() {
+  var picked = [].map.call(document.querySelectorAll('#chips input:checked'), function (i) {
+    return i.parentNode.querySelector('span').textContent;
+  });
+  return {
+    name: $('name').value.trim(), dept: $('dept').value.trim(), challenges: $('ch').value.trim(),
+    processes: picked, more: $('more').value.trim(), at: new Date().toISOString()
+  };
+}
+
+$('f').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  var r = collect();
+  var noProc = !r.processes.length && !r.more;
+  mark('q-name', !r.name); mark('q-dept', !r.dept); mark('q-ch', !r.challenges); mark('q-proc', noProc);
+  if (!r.name || !r.dept || !r.challenges || noProc) {
+    var first = document.querySelector('.q.bad');
+    if (first) first.scrollIntoView({ block: 'center', behavior: 'smooth' });
+    setStatus('');
+    return;
+  }
+  if ($('site').value) { $('f').hidden = true; document.querySelector('.not-only').hidden = true; $('done').hidden = false; return; } /* حقل مخفي للروبوتات */
+  if (!ENDPOINT) { setStatus('لم يُفعَّل استلام الإجابات بعد.', true); return; }
+  $('go').disabled = true; setStatus('جارٍ الإرسال…');
+  try {
+    await fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(r) });
+    $('f').hidden = true; document.querySelector('.not-only').hidden = true; $('done').hidden = false; setStatus('');
+    $('done').scrollIntoView({ block: 'start', behavior: 'smooth' });
+  } catch (err) {
+    setStatus('لم تصل الإجابة. تحقق من الاتصال وحاول مرة أخرى.', true);
+  } finally { $('go').disabled = false; }
+});
+
+['name', 'dept', 'ch'].forEach(function (id) { $(id).addEventListener('input', function () { mark('q-' + id, false); }); });
+$('chips').addEventListener('change', function () { mark('q-proc', false); });
+$('more').addEventListener('input', function () { mark('q-proc', false); });
+</script>
+</body>
+</html>
