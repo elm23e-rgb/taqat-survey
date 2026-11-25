@@ -188,8 +188,6 @@ button.ghost{background:none;border:1.5px solid var(--line);color:var(--fg);bord
   <section class="done" id="done" hidden>
     <span class="ok"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
     <h2 data-k="doneT"></h2>
-    <p data-k="doneD"></p>
-    <button type="button" class="ghost" id="again">أرسل إجابة جديدة</button>
   </section>
 
   
@@ -202,7 +200,7 @@ button.ghost{background:none;border:1.5px solid var(--line);color:var(--fg);bord
 /* رابط الاستلام: ضع هنا رابط تطبيق الويب من Google Apps Script (انظر README.md) */
 var ENDPOINT = 'https://script.google.com/macros/s/AKfycbyBVp24U9oJd5euFvpDHnufRoxkiMms-fImpM0si7KY6lUlrPMWoYXt54cuoaJ0Dio8cw/exec';
 
-var CONTENT = {"kick":"استبيان لمنسوبي جمعية طاقات الشبابية","title1":"استبيان لحصر الاحتياجات والمقترحات","title2":"لمشروع موقع الجمعية","lead":"","pillarsTitle":"المنظومة عبارة عن:","p0t":"الموقع","p0d":"واجهة الجمعية، وبرامجها وأخبارها.","p1t":"متجر التبرعات","p1d":"","p2t":"النظام الداخلي","p2d":"المراسلات والتعميد وغيرها.","qName":"اسمك؟","qDept":"في أي قسم أو إدارة تعمل؟","qCh":"عملية أو إجراء ودك إنه يؤتمت في عملك؟","qChHint":"","qProc":"العمليات اللي تراها ضرورية في المنظومة؟","qProcHint":"اختار عملية أو أكثر ..","qMore":"عمليات أخرى لا تجدها في القائمة","doneT":"وصلت إجابتك، شكرًا لك","doneD":"سنقرأ كل الإجابات ونرتّب بها أولويات المنظومة.","foot":"خِطام · حلول أعمال","chips":["المراسلات الصادرة والواردة","التعميد والاعتماد","الوثائق والأرشيف","المهام والاجتماعات","الموارد البشرية والحضور","المشاريع والتقارير","المتطوعون والشراكات","المشتريات والمالية","التبرعات والإيصالات","الدورات التدريبية","الأخبار والمركز الإعلامي"]};
+var CONTENT = {"kick":"استبيان لمنسوبي جمعية طاقات الشبابية","title1":"استبيان لحصر الاحتياجات والمقترحات","title2":"لمشروع موقع الجمعية","lead":"","pillarsTitle":"المنظومة عبارة عن:","p0t":"الموقع","p0d":"واجهة الجمعية، وبرامجها وأخبارها.","p1t":"متجر التبرعات","p1d":"","p2t":"النظام الداخلي","p2d":"المراسلات والتعميد وغيرها.","qName":"اسمك؟","qDept":"في أي قسم أو إدارة تعمل؟","qCh":"عملية أو إجراء ودك إنه يؤتمت في عملك؟","qChHint":"","qProc":"العمليات اللي تراها ضرورية في المنظومة؟","qProcHint":"اختار عملية أو أكثر ..","qMore":"عمليات أخرى لا تجدها في القائمة","doneT":"وصلت إجابتك، شكرًا لك","foot":"خِطام · حلول أعمال","chips":["المراسلات الصادرة والواردة","التعميد والاعتماد","الوثائق والأرشيف","المهام والاجتماعات","الموارد البشرية والحضور","المشاريع والتقارير","المتطوعون والشراكات","المشتريات والمالية","التبرعات والإيصالات","الدورات التدريبية","الأخبار والمركز الإعلامي"]};
 
 var $ = function (id) { return document.getElementById(id); };
 
@@ -255,12 +253,6 @@ $('f').addEventListener('submit', async function (e) {
   } finally { $('go').disabled = false; }
 });
 
-$('again').addEventListener('click', function () {
-  ['name', 'dept', 'ch', 'more'].forEach(function (id) { $(id).value = ''; });
-  [].forEach.call(document.querySelectorAll('#chips input'), function (i) { i.checked = false; });
-  $('done').hidden = true; $('f').hidden = false;
-  $('f').scrollIntoView({ block: 'start', behavior: 'smooth' });
-});
 ['name', 'dept', 'ch'].forEach(function (id) { $(id).addEventListener('input', function () { mark('q-' + id, false); }); });
 $('chips').addEventListener('change', function () { mark('q-proc', false); });
 $('more').addEventListener('input', function () { mark('q-proc', false); });
