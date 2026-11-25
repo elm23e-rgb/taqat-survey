@@ -241,12 +241,12 @@ $('f').addEventListener('submit', async function (e) {
     setStatus('');
     return;
   }
-  if ($('site').value) { $('f').hidden = true; $('done').hidden = false; return; } /* حقل مخفي للروبوتات */
+  if ($('site').value) { $('f').hidden = true; document.querySelector('.not-only').hidden = true; $('done').hidden = false; return; } /* حقل مخفي للروبوتات */
   if (!ENDPOINT) { setStatus('لم يُفعَّل استلام الإجابات بعد.', true); return; }
   $('go').disabled = true; setStatus('جارٍ الإرسال…');
   try {
     await fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body: JSON.stringify(r) });
-    $('f').hidden = true; $('done').hidden = false; setStatus('');
+    $('f').hidden = true; document.querySelector('.not-only').hidden = true; $('done').hidden = false; setStatus('');
     $('done').scrollIntoView({ block: 'start', behavior: 'smooth' });
   } catch (err) {
     setStatus('لم تصل الإجابة. تحقق من الاتصال وحاول مرة أخرى.', true);
