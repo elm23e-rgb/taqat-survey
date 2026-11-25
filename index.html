@@ -173,11 +173,12 @@ button.ghost{background:none;border:1.5px solid var(--line);color:var(--fg);bord
     <div class="q" id="q-proc" role="group" aria-labelledby="t-proc">
       <span class="num" aria-hidden="true">4</span>
       <div class="qb">
-        <span class="ttl" id="t-proc" data-k="qProc"></span>
+        <span class="ttl" id="t-proc"><span data-k="qProc"></span><span class="star" aria-label="مطلوب">&#8288;*</span></span>
         <span class="hint" data-k="qProcHint"></span>
         <div class="chips" id="chips"></div>
         <label for="more" class="hint sub" data-k="qMore"></label>
         <textarea id="more" style="min-height:90px" maxlength="2000"></textarea>
+        <div class="err">اختر عملية واحدة على الأقل، أو اكتبها في الخانة.</div>
       </div>
     </div>
 
@@ -238,8 +239,9 @@ function collect() {
 $('f').addEventListener('submit', async function (e) {
   e.preventDefault();
   var r = collect();
-  mark('q-name', !r.name); mark('q-dept', !r.dept); mark('q-ch', !r.challenges);
-  if (!r.name || !r.dept || !r.challenges) {
+  var noProc = !r.processes.length && !r.more;
+  mark('q-name', !r.name); mark('q-dept', !r.dept); mark('q-ch', !r.challenges); mark('q-proc', noProc);
+  if (!r.name || !r.dept || !r.challenges || noProc) {
     var first = document.querySelector('.q.bad');
     if (first) first.scrollIntoView({ block: 'center', behavior: 'smooth' });
     setStatus('أكمل الحقول التي عليها علامة حمراء.', true);
@@ -264,6 +266,8 @@ $('again').addEventListener('click', function () {
   $('f').scrollIntoView({ block: 'start', behavior: 'smooth' });
 });
 ['name', 'dept', 'ch'].forEach(function (id) { $(id).addEventListener('input', function () { mark('q-' + id, false); }); });
+$('chips').addEventListener('change', function () { mark('q-proc', false); });
+$('more').addEventListener('input', function () { mark('q-proc', false); });
 </script>
 </body>
 </html>
