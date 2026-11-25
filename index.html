@@ -68,7 +68,7 @@ input[type=text],textarea{font:inherit;color:var(--fg);background:var(--bg);bord
 textarea{min-height:120px;resize:vertical;line-height:1.75}
 input[type=text]:focus,textarea:focus{outline:0;border-color:var(--brand);box-shadow:0 0 0 3px color-mix(in srgb,var(--brand) 22%,transparent)}
 .q.bad input,.q.bad textarea{border-color:var(--err)}
-.err{display:none;color:var(--err);font-size:14.5px}.q.bad .err{display:block}
+.q.bad .chip span{border-color:var(--err)}
 
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{position:relative;display:inline-flex}
@@ -147,7 +147,6 @@ button.ghost{background:none;border:1.5px solid var(--line);color:var(--fg);bord
       <div class="qb">
         <label class="ttl" for="name"><span data-k="qName"></span><span class="star" aria-label="مطلوب">&#8288;*</span></label>
         <input type="text" id="name" autocomplete="name" maxlength="120">
-        <div class="err">اكتب اسمك.</div>
       </div>
     </div>
 
@@ -156,7 +155,6 @@ button.ghost{background:none;border:1.5px solid var(--line);color:var(--fg);bord
       <div class="qb">
         <label class="ttl" for="dept"><span data-k="qDept"></span><span class="star" aria-label="مطلوب">&#8288;*</span></label>
         <input type="text" id="dept" maxlength="120">
-        <div class="err">اكتب قسمك أو إدارتك.</div>
       </div>
     </div>
 
@@ -166,7 +164,6 @@ button.ghost{background:none;border:1.5px solid var(--line);color:var(--fg);bord
         <label class="ttl" for="ch"><span data-k="qCh"></span><span class="star" aria-label="مطلوب">&#8288;*</span></label>
         <span class="hint" data-k="qChHint"></span>
         <textarea id="ch" maxlength="2000"></textarea>
-        <div class="err">اكتب تحديًا واحدًا على الأقل.</div>
       </div>
     </div>
 
@@ -178,7 +175,6 @@ button.ghost{background:none;border:1.5px solid var(--line);color:var(--fg);bord
         <div class="chips" id="chips"></div>
         <label for="more" class="hint sub" data-k="qMore"></label>
         <textarea id="more" style="min-height:90px" maxlength="2000"></textarea>
-        <div class="err">اختر عملية واحدة على الأقل، أو اكتبها في الخانة.</div>
       </div>
     </div>
 
