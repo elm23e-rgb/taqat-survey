@@ -190,6 +190,14 @@ button.ghost{background:none;border:1.5px solid var(--line);color:var(--fg);bord
       </div>
     </div>
 
+        <div class="q" id="q-free">
+      <span class="num" aria-hidden="true">5</span>
+      <div class="qb">
+        <label class="ttl" for="free"><span data-k="qFree"></span></label>
+        <span class="hint" data-k="qFreeHint"></span>
+        <textarea id="free" maxlength="2000"></textarea>
+      </div>
+    </div>
     <input type="text" id="site" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;opacity:0;overflow:hidden;clip:rect(0 0 0 0);pointer-events:none">
     <div class="send">
       <button type="submit" class="primary" id="go">إرسال الإجابة</button>
@@ -212,7 +220,7 @@ button.ghost{background:none;border:1.5px solid var(--line);color:var(--fg);bord
 /* رابط الاستلام: ضع هنا رابط تطبيق الويب من Google Apps Script (انظر README.md) */
 var ENDPOINT = 'https://script.google.com/macros/s/AKfycbzRukHo1xv4WD04SXDLGDjWUvupNfykrL1-KKz1xF2gqepnpTk9C6Ko9ebca4dLGdFLnA/exec';
 
-var CONTENT = {"kick":"استبيان لمنسوبي جمعية طاقات الشبابية","title1":"استبيان لحصر الاحتياجات والمقترحات","title2":"لمشروع موقع الجمعية","lead":"","pillarsTitle":"المنظومة عبارة عن:","p0t":"الموقع","p0d":"واجهة الجمعية، وبرامجها وأخبارها.","p1t":"متجر التبرعات","p1d":"","p2t":"النظام الداخلي","p2d":"المراسلات والتعميد وغيرها.","qName":"اسمك؟","qDept":"في أي قسم أو إدارة تعمل؟","qCh":"عملية أو إجراء ودك إنه يؤتمت في عملك؟","qChHint":"","qProc":"الأولويات اللي تشوفها ضرورية في المنظومة؟","qProcHint":"اختار عملية أو أكثر ..","qMore":"أولويات أخرى غير المذكورة","doneT":"وصلت إجابتك، شكرًا لك","foot":"خِطام · حلول أعمال","chips":["المراسلات الصادرة والواردة","التعميد والاعتماد","الوثائق والأرشيف","المهام والاجتماعات","الموارد البشرية والحضور","المشاريع والتقارير","المتطوعون والشراكات","المشتريات والمالية","الدورات التدريبية"]};
+var CONTENT = {"kick":"استبيان لمنسوبي جمعية طاقات الشبابية","title1":"استبيان لحصر الاحتياجات والمقترحات","title2":"لمشروع موقع الجمعية","lead":"","pillarsTitle":"المنظومة عبارة عن:","p0t":"الموقع","p0d":"واجهة الجمعية، وبرامجها وأخبارها.","p1t":"متجر التبرعات","p1d":"","p2t":"النظام الداخلي","p2d":"المراسلات والتعميد وغيرها.","qName":"اسمك؟","qDept":"في أي قسم أو إدارة تعمل؟","qCh":"عملية أو إجراء ودك إنه يؤتمت في عملك؟","qChHint":"","qProc":"الأولويات اللي تشوفها ضرورية في المنظومة؟","qProcHint":"اختار عملية أو أكثر ..","qMore":"أولويات أخرى غير المذكورة","qFree":"عندك أي ملاحظة أو اقتراح؟","qFreeHint":"اختياري","doneT":"وصلت إجابتك، شكرًا لك","foot":"خِطام · حلول أعمال","chips":["المراسلات الصادرة والواردة","التعميد والاعتماد","الوثائق والأرشيف","المهام والاجتماعات","الموارد البشرية والحضور","المشاريع والتقارير","المتطوعون والشراكات","المشتريات والمالية","الدورات التدريبية"]};
 
 var $ = function (id) { return document.getElementById(id); };
 
@@ -238,7 +246,7 @@ function collect() {
   });
   return {
     name: $('name').value.trim(), dept: $('dept').value.trim(), challenges: $('ch').value.trim(),
-    processes: picked, more: $('more').value.trim(), at: new Date().toISOString()
+    processes: picked, more: $('more').value.trim(), notes: $('free').value.trim(), at: new Date().toISOString()
   };
 }
 

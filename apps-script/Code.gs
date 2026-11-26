@@ -2,7 +2,7 @@
  * يستقبل إجابات الاستبيان ويضيف كل إجابة صفًا في أول ورقة من الجدول.
  * الخطوات في README.md.
  */
-var HEADERS = ['التاريخ', 'الاسم', 'القسم أو الإدارة', 'العملية المطلوب أتمتتها', 'العمليات الضرورية', 'عمليات أخرى'];
+var HEADERS = ['التاريخ', 'الاسم', 'القسم أو الإدارة', 'العملية المطلوب أتمتتها', 'العمليات الضرورية', 'عمليات أخرى', 'ملاحظات أو اقتراحات'];
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
@@ -15,6 +15,8 @@ function doPost(e) {
       sheet.setFrozenRows(1);
       sheet.getRange(1, 1, 1, HEADERS.length).setFontWeight('bold');
       sheet.setRightToLeft(true);
+    } else if (sheet.getRange(1, HEADERS.length).getValue() === '') {
+      sheet.getRange(1, HEADERS.length).setValue(HEADERS[HEADERS.length - 1]).setFontWeight('bold');
     }
     sheet.appendRow([
       new Date(),
@@ -22,7 +24,8 @@ function doPost(e) {
       clean(d.dept),
       clean(d.challenges),
       clean(Array.isArray(d.processes) ? d.processes.join('، ') : ''),
-      clean(d.more)
+      clean(d.more),
+      clean(d.notes)
     ]);
     return json({ ok: true });
   } catch (err) {
